@@ -5,11 +5,9 @@ module = "bookmark"
 
 textfiles = {"README.md"}
 unpackfiles = {'bookmark.dtx'}
-sourcefiles={"*.dtx"}
-installfiles={"*.sty"}
+sourcefiles={"*.dtx","*.tex"}
+installfiles={"*.sty","*.tex"}
 
-
-checkconfigs = {"config-noxetex"}
 
  
 packtdszip  = true
@@ -17,7 +15,9 @@ packtdszip  = true
 maxprintline=10000
 checkruns = 2
 
-
+tdslocations={
+"doc/latex/bookmark/bookmark-example.tex",
+}
 
 function update_tag(file,content,tagname,tagdate)
 
