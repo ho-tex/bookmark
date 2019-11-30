@@ -6,7 +6,7 @@ module = "bookmark"
 textfiles = {"README.md"}
 unpackfiles = {'bookmark.dtx'}
 sourcefiles={"*.dtx","*.tex"}
-installfiles={"*.sty","*.tex","*.def"}
+installfiles={"*.sty","*.tex","*.def"x}
 
 
 
@@ -17,12 +17,12 @@ checkruns = 2
 
 tdslocations={
 "doc/latex/bookmark/bookmark-example.tex",
-"tex/latex/oberdiek/bkm-dvipdfm.def",
-"tex/latex/oberdiek/bkm-dvips.def",
-"tex/latex/oberdiek/bkm-dvipsone.def",
-"tex/latex/oberdiek/bkm-pdftex.def",
-"tex/latex/oberdiek/bkm-textures.def",
-"tex/latex/oberdiek/bkm-vtex.def",
+"tex/latex/bookmark/bkm-dvipdfm.def",
+"tex/latex/bookmark/bkm-dvips.def",
+"tex/latex/bookmark/bkm-dvipsone.def",
+"tex/latex/bookmark/bkm-pdftex.def",
+"tex/latex/bookmark/bkm-textures.def",
+"tex/latex/bookmark/bkm-vtex.def",
 }
 
 function update_tag(file,content,tagname,tagdate)
