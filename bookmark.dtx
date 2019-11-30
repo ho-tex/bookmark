@@ -1,13 +1,13 @@
 % \iffalse meta-comment
 %
 % File: bookmark.dtx
-% Version: 2019/06/04 v1.27
+% Version: 2019/12/15 v1.28
 % Info: PDF bookmarks
 %
 % Copyright (C)
 %    2007-2011 Heiko Oberdiek
 %    2016-2019 Oberdiek Package Support Group
-%    https://github.com/ho-tex/oberdiek/issues
+%    https://github.com/ho-tex/bookmark/issues
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either
@@ -23,7 +23,7 @@
 %
 % The Current Maintainers of this work are
 % Heiko Oberdiek and the Oberdiek Package Support Group
-% https://github.com/ho-tex/oberdiek/issues
+% https://github.com/ho-tex/bookmark/issues
 %
 % This work consists of the main source file bookmark.dtx
 % and the derived files
@@ -33,8 +33,8 @@
 %    bookmark-example.tex.
 %
 % Distribution:
-%    CTAN:macros/latex/contrib/oberdiek/bookmark.dtx
-%    CTAN:macros/latex/contrib/oberdiek/bookmark.pdf
+%    CTAN:macros/latex/contrib/bookmark/bookmark.dtx
+%    CTAN:macros/latex/contrib/bookmark/bookmark.pdf
 %
 % Unpacking:
 %    (a) If bookmark.ins is present:
@@ -63,16 +63,16 @@
 %       pdflatex bookmark.dtx
 %
 % Installation:
-%    TDS:tex/latex/oberdiek/bookmark.sty
-%    TDS:tex/latex/oberdiek/bkm-dvipdfm.def
-%    TDS:tex/latex/oberdiek/bkm-dvips.def
-%    TDS:tex/latex/oberdiek/bkm-dvipsone.def
-%    TDS:tex/latex/oberdiek/bkm-textures.def
-%    TDS:tex/latex/oberdiek/bkm-pdftex.def
-%    TDS:tex/latex/oberdiek/bkm-vtex.def
-%    TDS:doc/latex/oberdiek/bookmark.pdf
-%    TDS:doc/latex/oberdiek/bookmark-example.tex
-%    TDS:source/latex/oberdiek/bookmark.dtx
+%    TDS:tex/latex/bookmark/bookmark.sty
+%    TDS:tex/latex/bookmark/bkm-dvipdfm.def
+%    TDS:tex/latex/bookmark/bkm-dvips.def
+%    TDS:tex/latex/bookmark/bkm-dvipsone.def
+%    TDS:tex/latex/bookmark/bkm-textures.def
+%    TDS:tex/latex/bookmark/bkm-pdftex.def
+%    TDS:tex/latex/bookmark/bkm-vtex.def
+%    TDS:doc/latex/bookmark/bookmark.pdf
+%    TDS:doc/latex/bookmark/bookmark-example.tex
+%    TDS:source/latex/bookmark/bookmark.dtx
 %
 %<*ignore>
 \begingroup
@@ -89,7 +89,7 @@
 \input docstrip.tex
 \Msg{************************************************************************}
 \Msg{* Installation}
-\Msg{* Package: bookmark 2019/06/04 v1.27 PDF bookmarks (HO)}
+\Msg{* Package: bookmark 2019/12/15 v1.28 PDF bookmarks (HO)}
 \Msg{************************************************************************}
 
 \keepsilent
@@ -101,7 +101,7 @@
 This is a generated file.
 
 Project: bookmark
-Version: 2019/06/04 v1.27
+Version: 2019/12/15 v1.28
 
 Copyright (C)
    2007-2011 Heiko Oberdiek
@@ -121,7 +121,7 @@ This work has the LPPL maintenance status "maintained".
 
 The Current Maintainers of this work are
 Heiko Oberdiek and the Oberdiek Package Support Group
-https://github.com/ho-tex/oberdiek/issues
+https://github.com/ho-tex/bookmark/issues
 
 
 This work consists of the main source file bookmark.dtx
@@ -137,7 +137,7 @@ and the derived files
 \generate{%
   \file{bookmark.ins}{\from{bookmark.dtx}{install}}%
   \file{bookmark.drv}{\from{bookmark.dtx}{driver}}%
-  \usedir{tex/latex/oberdiek}%
+  \usedir{tex/latex/bookmark}%
   \file{bookmark.sty}{\from{bookmark.dtx}{package}}%
   \file{bkm-dvipdfm.def}{\from{bookmark.dtx}{dvipdfm}}%
   \file{bkm-dvips.def}{\from{bookmark.dtx}{dvips,pdfmark}}%
@@ -145,11 +145,11 @@ and the derived files
   \file{bkm-textures.def}{\from{bookmark.dtx}{textures,pdfmark}}%
   \file{bkm-pdftex.def}{\from{bookmark.dtx}{pdftex}}%
   \file{bkm-vtex.def}{\from{bookmark.dtx}{vtex}}%
-  \usedir{doc/latex/oberdiek}%
+  \usedir{doc/latex/bookmark}%
   \file{bookmark-example.tex}{\from{bookmark.dtx}{example}}%
   \nopreamble
   \nopostamble
-%  \usedir{source/latex/oberdiek/catalogue}%
+%  \usedir{source/latex/bookmark/catalogue}%
 %  \file{bookmark.xml}{\from{bookmark.dtx}{catalogue}}%
 }
 
@@ -179,7 +179,7 @@ and the derived files
 %<*driver>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bookmark.drv}%
-  [2019/06/04 v1.27 PDF bookmarks (HO)]%
+  [2019/12/15 v1.28 PDF bookmarks (HO)]%
 \documentclass{ltxdoc}
 \usepackage{holtxdoc}[2011/11/22]
 \begin{document}
@@ -208,9 +208,9 @@ and the derived files
 % \GetFileInfo{bookmark.drv}
 %
 % \title{The \xpackage{bookmark} package}
-% \date{2019/06/04 v1.27}
+% \date{2019/12/15 v1.28}
 % \author{Heiko Oberdiek\thanks
-% {Please report any issues at \url{https://github.com/ho-tex/oberdiek/issues}}}
+% {Please report any issues at \url{https://github.com/ho-tex/bookmark/issues}}}
 %
 % \maketitle
 %
@@ -668,7 +668,7 @@ and the derived files
   open,
   openlevel=2,
   atend
-]{bookmark}[2019/06/04]
+]{bookmark}[2019/12/15]
 
 \bookmarksetup{color=blue}
 
@@ -771,7 +771,7 @@ and the derived files
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{bookmark}%
-  [2019/06/04 v1.27 PDF bookmarks (HO)]%
+  [2019/12/15 v1.28 PDF bookmarks (HO)]%
 %    \end{macrocode}
 %
 % \subsubsection{Requirements}
@@ -803,9 +803,6 @@ and the derived files
 %
 % \paragraph{Escape features of \hologo{pdfTeX}.}
 %
-%    \begin{macrocode}
-\RequirePackage{pdfescape}[2007/03/20]
-%    \end{macrocode}
 %    \begin{macro}{\BKM@EscapeName}
 %    \begin{macrocode}
 \def\BKM@EscapeName#1{%
@@ -846,19 +843,9 @@ and the derived files
 %
 % \paragraph{Packages.}
 %
+% Don't load packages loaded by xpackage{hyperref}
 %    \begin{macrocode}
-\RequirePackage{ifpdf}[2009/04/10]
-\RequirePackage{ifxetex}
-\RequirePackage{ifvtex}[2008/11/04]
-\RequirePackage{ifluatex}[2010/03/01]
-\RequirePackage{pdftexcmds}[2010/11/04]
 \RequirePackage{hyperref}[2010/06/18]
-\RequirePackage{auxhook}[2007/04/06]
-\RequirePackage{kvsetkeys}[2010/03/01]
-\RequirePackage{kvoptions}[2009/08/13]
-\RequirePackage{hycolor}[2008/09/08]
-\RequirePackage{bitset}[2011/01/30]
-\RequirePackage{ltxcmds}[2011/04/14]
 %    \end{macrocode}
 %
 % \subsubsection{Package options}
@@ -1899,7 +1886,7 @@ and the derived files
 %<*dvipdfm>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-dvipdfm.def}%
-  [2019/06/04 v1.27 bookmark driver for dvipdfm (HO)]%
+  [2019/12/15 v1.28 bookmark driver for dvipdfm (HO)]%
 %    \end{macrocode}
 %
 %    \begin{macro}{\BKM@id}
@@ -2074,7 +2061,7 @@ and the derived files
 %<*vtex>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-vtex.def}%
-  [2019/06/04 v1.27 bookmark driver for VTeX (HO)]%
+  [2019/12/15 v1.28 bookmark driver for VTeX (HO)]%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -2405,7 +2392,7 @@ and the derived files
 %<*pdftex>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-pdftex.def}%
-  [2019/06/04 v1.27 bookmark driver for pdfTeX (HO)]%
+  [2019/12/15 v1.28 bookmark driver for pdfTeX (HO)]%
 %    \end{macrocode}
 %
 %    \begin{macro}{\BKM@DO@entry}
@@ -2561,7 +2548,7 @@ and the derived files
 %<*dvips>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-dvips.def}%
-  [2019/06/04 v1.27 bookmark driver for dvips (HO)]%
+  [2019/12/15 v1.28 bookmark driver for dvips (HO)]%
 %    \end{macrocode}
 %    \begin{macro}{\BKM@PSHeaderFile}
 %    \begin{macrocode}
@@ -2580,7 +2567,7 @@ and the derived files
 %<*dvipsone>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-dvipsone.def}%
-  [2019/06/04 v1.27 bookmark driver for dvipsone (HO)]%
+  [2019/12/15 v1.28 bookmark driver for dvipsone (HO)]%
 %    \end{macrocode}
 %    \begin{macro}{\BKM@PSHeaderFile}
 %    \begin{macrocode}
@@ -2599,7 +2586,7 @@ and the derived files
 %<*textures>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-textures.def}%
-  [2019/06/04 v1.27 bookmark driver for textures (HO)]%
+  [2019/12/15 v1.28 bookmark driver for textures (HO)]%
 %    \end{macrocode}
 %    \begin{macro}{\BKM@PSHeaderFile}
 %    \begin{macrocode}
@@ -3086,17 +3073,17 @@ and the derived files
 % \paragraph{Package.} This package is available on
 % CTAN\footnote{\CTANpkg{bookmark}}:
 % \begin{description}
-% \item[\CTAN{macros/latex/contrib/oberdiek/bookmark.dtx}] The source file.
-% \item[\CTAN{macros/latex/contrib/oberdiek/bookmark.pdf}] Documentation.
+% \item[\CTAN{macros/latex/contrib/bookmark/bookmark.dtx}] The source file.
+% \item[\CTAN{macros/latex/contrib/bookmark/bookmark.pdf}] Documentation.
 % \end{description}
 %
 %
-% \paragraph{Bundle.} All the packages of the bundle `oberdiek'
+% \paragraph{Bundle.} All the packages of the bundle `bookmark'
 % are also available in a TDS compliant ZIP archive. There
 % the packages are already unpacked and the documentation files
 % are generated. The files and directories obey the TDS standard.
 % \begin{description}
-% \item[\CTANinstall{install/macros/latex/contrib/oberdiek.tds.zip}]
+% \item[\CTANinstall{install/macros/latex/contrib/bookmark.tds.zip}]
 % \end{description}
 % \emph{TDS} refers to the standard ``A Directory Structure
 % for \TeX\ Files'' (\CTANpkg{tds}). Directories
@@ -3104,11 +3091,11 @@ and the derived files
 %
 % \subsection{Bundle installation}
 %
-% \paragraph{Unpacking.} Unpack the \xfile{oberdiek.tds.zip} in the
+% \paragraph{Unpacking.} Unpack the \xfile{bookmark.tds.zip} in the
 % TDS tree (also known as \xfile{texmf} tree) of your choice.
 % Example (linux):
 % \begin{quote}
-%   |unzip oberdiek.tds.zip -d ~/texmf|
+%   |unzip bookmark.tds.zip -d ~/texmf|
 % \end{quote}
 %
 % \subsection{Package installation}
@@ -3126,16 +3113,16 @@ and the derived files
 % \begin{quote}
 % \def\t{^^A
 % \begin{tabular}{@{}>{\ttfamily}l@{ $\rightarrow$ }>{\ttfamily}l@{}}
-%   bookmark.sty & tex/latex/oberdiek/bookmark.sty\\
-%   bkm-dvipdfm.def & tex/latex/oberdiek/bkm-dvipdfm.def\\
-%   bkm-dvips.def & tex/latex/oberdiek/bkm-dvips.def\\
-%   bkm-dvipsone.def & tex/latex/oberdiek/bkm-dvipsone.def\\
-%   bkm-textures.def & tex/latex/oberdiek/bkm-textures.def\\
-%   bkm-pdftex.def & tex/latex/oberdiek/bkm-pdftex.def\\
-%   bkm-vtex.def & tex/latex/oberdiek/bkm-vtex.def\\
-%   bookmark.pdf & doc/latex/oberdiek/bookmark.pdf\\
-%   bookmark-example.tex & doc/latex/oberdiek/bookmark-example.tex\\
-%   bookmark.dtx & source/latex/oberdiek/bookmark.dtx\\
+%   bookmark.sty & tex/latex/bookmark/bookmark.sty\\
+%   bkm-dvipdfm.def & tex/latex/bookmark/bkm-dvipdfm.def\\
+%   bkm-dvips.def & tex/latex/bookmark/bkm-dvips.def\\
+%   bkm-dvipsone.def & tex/latex/bookmark/bkm-dvipsone.def\\
+%   bkm-textures.def & tex/latex/bookmark/bkm-textures.def\\
+%   bkm-pdftex.def & tex/latex/bookmark/bkm-pdftex.def\\
+%   bkm-vtex.def & tex/latex/bookmark/bkm-vtex.def\\
+%   bookmark.pdf & doc/latex/bookmark/bookmark.pdf\\
+%   bookmark-example.tex & doc/latex/bookmark/bookmark-example.tex\\
+%   bookmark.dtx & source/latex/bookmark/bookmark.dtx\\
 % \end{tabular}^^A
 % }^^A
 % \sbox0{\t}^^A
@@ -3463,6 +3450,12 @@ and the derived files
 %     unknown style options are ignored (issue 67)
 %   \end{Version}
 
+%   \begin{Version}{2019/12/15 v1.28}
+%   \item
+%     Documentation updates.
+%   \item adjust package loading (all required packages already loade
+%     by \xpackage{hyperref}).
+%   \end{Version}
 % \end{History}
 %
 % \PrintIndex
