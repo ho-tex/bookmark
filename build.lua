@@ -42,7 +42,7 @@ if tagname == 'auto' then
     print('USING OLD TAG: ' .. oldv)
     print('USING NEW TAG: ' .. newv)
     content=string.gsub(content,"{Version}{" .. oldv,'##OLDV##')
-    content=string.gsub(content,oldv,newv)
+    content=string.gsub(content,string.gsub(oldv,"[-/]", "[-/]"),newv)
     content=string.gsub(content,'##OLDV##',"{Version}{" .. oldv)
     content = string.gsub(content,
         '%% \\end{History}',
