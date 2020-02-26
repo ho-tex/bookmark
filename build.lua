@@ -8,7 +8,7 @@ unpackfiles = {'bookmark.dtx'}
 sourcefiles={"*.dtx","*.tex"}
 installfiles={"*.sty","*.tex","*.def"}
 
-
+checkconfigs = {"build","config-noxetex"}
 
 packtdszip  = true
 
