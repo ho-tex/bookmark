@@ -1,0 +1,13 @@
+\documentclass{book}
+\input{regression-test}
+\makeatletter
+\let\@@end\@@@end
+\tracingstats=0
+\makeatother
+\usepackage[destlabel=true]{hyperref}
+\usepackage{bookmark}
+\begin{document}
+\START
+\chapter{Test}
+\label{sec:chap}
+\end{document}

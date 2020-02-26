@@ -1,0 +1,16 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+Chapter 1.
+(../se-ascii-print.def
+File: se-ascii-print.def ....-..-.. v... stringenc: Printable ASCII characters
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line ....
+[1
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line ....
+(issue1-destlabel.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line ....
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line ....
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line ....
+ )
+Output written on issue1-destlabel.xdv (1 page, 1432 bytes).
