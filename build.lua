@@ -25,6 +25,8 @@ tdslocations={
 "tex/latex/bookmark/bkm-vtex.def",
 }
 
+tagfiles={"README.md", "*.dtx"}
+
 function update_tag(file,content,tagname,tagdate)
 
 local tagpattern="(%d%d%d%d[-/]%d%d[-/]%d%d) v(%d+[.])(%d+)"
