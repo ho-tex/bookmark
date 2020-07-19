@@ -1,6 +1,8 @@
-# bookmarks
+# bookmark
 
-bookmarks package for LaTeX
+## bookmark package for LaTeX
+
+Version: 2019/12/03 v1.28
 
 
 This package implements a new bookmark (outline) organization for

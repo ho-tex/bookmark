@@ -9,7 +9,6 @@ sourcefiles={"*.dtx","*.tex"}
 installfiles={"*.sty","*.tex","*.def"}
 
 
-
 packtdszip  = true
 
 maxprintline=10000
@@ -24,6 +23,8 @@ tdslocations={
 "tex/latex/bookmark/bkm-textures.def",
 "tex/latex/bookmark/bkm-vtex.def",
 }
+
+tagfiles={"README.md", "*.dtx"}
 
 function update_tag(file,content,tagname,tagdate)
 
