@@ -1,12 +1,12 @@
 % \iffalse meta-comment
 %
 % File: bookmark.dtx
-% Version: 2019/12/03 v1.28
+% Version: 2020-11-06 v1.29
 % Info: PDF bookmarks
 %
 % Copyright (C)
 %    2007-2011 Heiko Oberdiek
-%    2016-2019 Oberdiek Package Support Group
+%    2016-2020 Oberdiek Package Support Group
 %    https://github.com/ho-tex/bookmark/issues
 %
 % This work may be distributed and/or modified under the
@@ -89,7 +89,7 @@
 \input docstrip.tex
 \Msg{************************************************************************}
 \Msg{* Installation}
-\Msg{* Package: bookmark 2019/12/03 v1.28 PDF bookmarks (HO)}
+\Msg{* Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)}
 \Msg{************************************************************************}
 
 \keepsilent
@@ -101,11 +101,11 @@
 This is a generated file.
 
 Project: bookmark
-Version: 2019/12/03 v1.28
+Version: 2020-11-06 v1.29
 
 Copyright (C)
    2007-2011 Heiko Oberdiek
-   2016-2019 Oberdiek Package Support Group
+   2016-2020 Oberdiek Package Support Group
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either
@@ -175,7 +175,7 @@ and the derived files
 %<*driver>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bookmark.drv}%
-  [2019/12/03 v1.28 PDF bookmarks (HO)]%
+  [2020-11-06 v1.29 PDF bookmarks (HO)]%
 \documentclass{ltxdoc}
 \usepackage{holtxdoc}[2011/11/22]
 \begin{document}
@@ -189,7 +189,7 @@ and the derived files
 % \GetFileInfo{bookmark.drv}
 %
 % \title{The \xpackage{bookmark} package}
-% \date{2019/12/03 v1.28}
+% \date{2020-11-06 v1.29}
 % \author{Heiko Oberdiek\thanks
 % {Please report any issues at \url{https://github.com/ho-tex/bookmark/issues}}}
 %
@@ -297,6 +297,8 @@ and the derived files
 % \begin{quote}
 % |\def\BookmarkDriverDefault{dvipdfm}|
 % \end{quote}
+% The \xoption{dvips}, \xoption{dvipsone} and \xoption{textures} driver
+% use new \LaTeX-hooks and so require a format 2020-10-01 or newer.
 %
 % \paragraph{Open bookmarks with dvipdfmx.} Since 2007-04-25 the
 % cvs version of dvipmdfmx contains a patch that extends the
@@ -752,7 +754,7 @@ and the derived files
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{bookmark}%
-  [2019/12/03 v1.28 PDF bookmarks (HO)]%
+  [2020-11-06 v1.29 PDF bookmarks (HO)]%
 %    \end{macrocode}
 %
 % \subsubsection{Requirements}
@@ -1867,7 +1869,7 @@ and the derived files
 %<*dvipdfm>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-dvipdfm.def}%
-  [2019/12/03 v1.28 bookmark driver for dvipdfm (HO)]%
+  [2020-11-06 v1.29 bookmark driver for dvipdfm (HO)]%
 %    \end{macrocode}
 %
 %    \begin{macro}{\BKM@id}
@@ -2042,7 +2044,7 @@ and the derived files
 %<*vtex>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-vtex.def}%
-  [2019/12/03 v1.28 bookmark driver for VTeX (HO)]%
+  [2020-11-06 v1.29 bookmark driver for VTeX (HO)]%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -2373,7 +2375,7 @@ and the derived files
 %<*pdftex>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-pdftex.def}%
-  [2019/12/03 v1.28 bookmark driver for pdfTeX (HO)]%
+  [2020-11-06 v1.29 bookmark driver for pdfTeX (HO)]%
 %    \end{macrocode}
 %
 %    \begin{macro}{\BKM@DO@entry}
@@ -2529,7 +2531,7 @@ and the derived files
 %<*dvips>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-dvips.def}%
-  [2019/12/03 v1.28 bookmark driver for dvips (HO)]%
+  [2020-11-06 v1.29 bookmark driver for dvips (HO)]%
 %    \end{macrocode}
 %    \begin{macro}{\BKM@PSHeaderFile}
 %    \begin{macrocode}
@@ -2559,7 +2561,7 @@ and the derived files
 %<*dvipsone>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-dvipsone.def}%
-  [2019/12/03 v1.28 bookmark driver for dvipsone (HO)]%
+  [2020-11-06 v1.29 bookmark driver for dvipsone (HO)]%
 %    \end{macrocode}
 %    \begin{macro}{\BKM@PSHeaderFile}
 %    \begin{macrocode}
@@ -2587,7 +2589,7 @@ and the derived files
 %<*textures>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-textures.def}%
-  [2019/12/03 v1.28 bookmark driver for textures (HO)]%
+  [2020-11-06 v1.29 bookmark driver for textures (HO)]%
 %    \end{macrocode}
 %    \begin{macro}{\BKM@PSHeaderFile}
 %    \begin{macrocode}
@@ -3452,6 +3454,12 @@ and the derived files
 %     Documentation updates.
 %   \item adjust package loading (all required packages already loade
 %     by \xpackage{hyperref}).
+%   \end{Version}
+%   \begin{Version}{2020-11-06 v1.29}
+%   \item Adapted the dvips and dvipsone driver to avoid a clash with pgf.
+%         https://github.com/pgf-tikz/pgf/issues/944
+%         These drivers and the textures driver now use the new LaTeX hooks
+%         and so require a format 2020-10-01 or newer.
 %   \end{Version}
 % \end{History}
 %
