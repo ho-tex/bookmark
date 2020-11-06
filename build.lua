@@ -8,7 +8,7 @@ unpackfiles = {'bookmark.dtx'}
 sourcefiles={"*.dtx","*.tex"}
 installfiles={"*.sty","*.tex","*.def"}
 
-
+checkconfigs = {"build","config-noxetex"}
 
 packtdszip  = true
 
@@ -24,6 +24,8 @@ tdslocations={
 "tex/latex/bookmark/bkm-textures.def",
 "tex/latex/bookmark/bkm-vtex.def",
 }
+
+tagfiles={"README.md", "*.dtx"}
 
 function update_tag(file,content,tagname,tagdate)
 
@@ -41,9 +43,11 @@ if tagname == 'auto' then
     newv = tagdate .. ' v'  .. a .. math.floor(b + 1)
     print('USING OLD TAG: ' .. oldv)
     print('USING NEW TAG: ' .. newv)
-    content=string.gsub(content,"{Version}{" .. oldv,'##OLDV##')
-    content=string.gsub(content,string.gsub(oldv,"[-/]", "[-/]"),newv)
+    local oldpattern = string.gsub(oldv,"[-/]", "[-/]")
+    content=string.gsub(content,"{Version}{" .. oldpattern,'##OLDV##')
+    content=string.gsub(content,oldpattern,newv)
     content=string.gsub(content,'##OLDV##',"{Version}{" .. oldv)
+    content=string.gsub(content,'%-%d%d%d%d Oberdiek Package','-' .. os.date("%Y") .. " Oberdiek Package")
     content = string.gsub(content,
         '%% \\end{History}',
 	'%%   \\begin{Version}{' .. newv .. '}\n%%   \\item Updated\n%%   \\end{Version}\n%% \\end{History}')

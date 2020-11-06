@@ -1,0 +1,16 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+Chapter 1.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line ....
+[1
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line ....
+(issue1-destlabel.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line ....
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line ....
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line ....
+)<../lmroman10-regular.otf><../lmroman12-bold.otf>
+Output written on issue1-destlabel.pdf (1 page, 7532 bytes).
+PDF statistics: 30 PDF objects out of 1000 (max. 8388607)
+ 3 named destinations out of 1000 (max. 131072)
+ 9 words of extra memory for PDF output out of 10000 (max. 100000000)

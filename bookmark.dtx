@@ -1845,7 +1845,7 @@ and the derived files
           \let\partnumberline\@gobble
           \let\chapternumberline\@gobble
         \fi
-        \bookmark[level=#4,dest={#3}]{#2}%
+        \bookmark[level=#4,dest={\HyperDestNameFilter{#3}}]{#2}%
       \endgroup
     \fi
   \fi
@@ -3460,6 +3460,7 @@ and the derived files
 %         https://github.com/pgf-tikz/pgf/issues/944
 %         These drivers and the textures driver now use the new LaTeX hooks
 %         and so require a format 2020-10-01 or newer.
+%   \item Added support for destlabel option of hyperref, https://github.com/ho-tex/bookmark/issues/1
 %   \end{Version}
 % \end{History}
 %
