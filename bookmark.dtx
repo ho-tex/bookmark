@@ -2534,8 +2534,19 @@ and the derived files
 %    \begin{macro}{\BKM@PSHeaderFile}
 %    \begin{macrocode}
 \def\BKM@PSHeaderFile#1{%
-  \special{header=#1}%
+  \special{PSfile=#1}%
 }
+%    \end{macrocode}
+%    \begin{macro}{\BKM@filename}
+%    \begin{macrocode}
+\def\BKM@filename{\jobname.out.ps}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macrocode}
+\AddToHook{shipout/lastpage}{%
+  \BKM@pdfmark@out
+  \BKM@PSHeaderFile\BKM@filename
+  }
 %    \end{macrocode}
 %    \end{macro}
 %    \begin{macrocode}
@@ -2553,8 +2564,17 @@ and the derived files
 %    \begin{macro}{\BKM@PSHeaderFile}
 %    \begin{macrocode}
 \def\BKM@PSHeaderFile#1{%
-  \special{header=#1}%
+  \special{PSfile=#1}%
 }
+%    \end{macrocode}
+%    \begin{macro}{\BKM@filename}
+%    \begin{macrocode}
+\def\BKM@filename{\jobname.out.ps}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macrocode}
+\BKM@PSHeaderFile\BKM@filename
+\AddToHook{shipout/lastpage}{\BKM@pdfmark@out}
 %    \end{macrocode}
 %    \end{macro}
 %    \begin{macrocode}
@@ -2575,6 +2595,15 @@ and the derived files
   \special{prePostScriptfile #1}%
 }
 %    \end{macrocode}
+%    \begin{macro}{\BKM@filename}
+%    \begin{macrocode}
+\def\BKM@filename{\jobname.out.ps}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macrocode}
+\BKM@PSHeaderFile\BKM@filename
+\AddToHook{shipout/lastpage}{\BKM@pdfmark@out}
+%    \end{macrocode}
 %    \end{macro}
 %    \begin{macrocode}
 %</textures>
@@ -2584,19 +2613,6 @@ and the derived files
 %
 %    \begin{macrocode}
 %<*pdfmark>
-%    \end{macrocode}
-%    \begin{macro}{\BKM@filename}
-%    \begin{macrocode}
-\def\BKM@filename{\jobname.out.ps}
-%    \end{macrocode}
-%    \end{macro}
-%    \begin{macrocode}
-\BKM@PSHeaderFile\BKM@filename
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-\RequirePackage{atveryend}[2009/12/07]
-\AfterLastShipout{\BKM@pdfmark@out}
 %    \end{macrocode}
 %
 %    \begin{macro}{\BKM@pdfmark@out}
