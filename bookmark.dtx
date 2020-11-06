@@ -28,8 +28,8 @@
 % This work consists of the main source file bookmark.dtx
 % and the derived files
 %    bookmark.sty, bookmark.pdf, bookmark.ins, bookmark.drv,
-%    bkm-dvipdfm.def, bkm-dvips.def, bkm-dvipsone.def,
-%    bkm-textures.def, bkm-pdftex.def, bkm-vtex.def,
+%    bkm-dvipdfm.def, bkm-dvips.def,
+%    bkm-pdftex.def, bkm-vtex.def,
 %    bookmark-example.tex.
 %
 % Distribution:
@@ -66,8 +66,6 @@
 %    TDS:tex/latex/bookmark/bookmark.sty
 %    TDS:tex/latex/bookmark/bkm-dvipdfm.def
 %    TDS:tex/latex/bookmark/bkm-dvips.def
-%    TDS:tex/latex/bookmark/bkm-dvipsone.def
-%    TDS:tex/latex/bookmark/bkm-textures.def
 %    TDS:tex/latex/bookmark/bkm-pdftex.def
 %    TDS:tex/latex/bookmark/bkm-vtex.def
 %    TDS:doc/latex/bookmark/bookmark.pdf
@@ -127,8 +125,7 @@ https://github.com/ho-tex/bookmark/issues
 This work consists of the main source file bookmark.dtx
 and the derived files
    bookmark.sty, bookmark.pdf, bookmark.ins, bookmark.drv,
-   bkm-dvipdfm.def, bkm-dvips.def, bkm-dvipsone.def,
-   bkm-textures.def, bkm-pdftex.def, bkm-vtex.def,
+   bkm-dvipdfm.def, bkm-dvips.def, bkm-pdftex.def, bkm-vtex.def,
    bookmark-example.tex.
 
 \endpreamble
@@ -141,8 +138,6 @@ and the derived files
   \file{bookmark.sty}{\from{bookmark.dtx}{package}}%
   \file{bkm-dvipdfm.def}{\from{bookmark.dtx}{dvipdfm}}%
   \file{bkm-dvips.def}{\from{bookmark.dtx}{dvips,pdfmark}}%
-  \file{bkm-dvipsone.def}{\from{bookmark.dtx}{dvipsone,pdfmark}}%
-  \file{bkm-textures.def}{\from{bookmark.dtx}{textures,pdfmark}}%
   \file{bkm-pdftex.def}{\from{bookmark.dtx}{pdftex}}%
   \file{bkm-vtex.def}{\from{bookmark.dtx}{vtex}}%
   \usedir{doc/latex/bookmark}%
@@ -157,8 +152,7 @@ and the derived files
 \Msg{* files into a directory searched by TeX:}
 \Msg{*}
 \Msg{*     bookmark.sty, bkm-dvipdfm.def, bkm-dvips.def,}
-\Msg{*     bkm-dvipsone.def, bkm-textures.def, bkm-pdftex.def,}
-\Msg{*     bkm-vtex.def}
+\Msg{*     bkm-pdftex.def, bkm-vtex.def}
 \Msg{*}
 \Msg{* To produce the documentation run the file `bookmark.drv'}
 \Msg{* through LaTeX.}
@@ -287,7 +281,6 @@ and the derived files
 % \subsubsection{Driver options}
 %
 % Supported drivers are \xoption{pdftex}, \xoption{dvips},
-% \xoption{dvipsone}, \xoption{textures},
 % \xoption{dvipdfm} (\xoption{xetex}), and \xoption{vtex}.
 % The \hologo{TeX} engines \hologo{pdfTeX}, \hologo{XeTeX},
 % and \hologo{VTeX} are automatically detected.
@@ -297,8 +290,8 @@ and the derived files
 % \begin{quote}
 % |\def\BookmarkDriverDefault{dvipdfm}|
 % \end{quote}
-% The \xoption{dvips}, \xoption{dvipsone} and \xoption{textures} driver
-% use new \LaTeX-hooks and so require a format 2020-10-01 or newer.
+% The \xoption{dvips} driver uses new \LaTeX-hooks and
+% so require a format 2020-10-01 or newer.
 %
 % \paragraph{Open bookmarks with dvipdfmx.} Since 2007-04-25 the
 % cvs version of dvipmdfmx contains a patch that extends the
@@ -398,7 +391,7 @@ and the derived files
 % unhappily the file name is a secret. The package supports
 % some ways to get the file name:
 % \begin{itemize}
-% \item If \hologo{LuaTeX} (indenpendently from DVI or PDF modus)
+% \item If \hologo{LuaTeX} (independently from DVI or PDF modus)
 %   is running, then its |status.filename| is used automatically.
 % \item Package \cs{currfile} \cite{currfile} redefines \hologo{LaTeX}
 %    internals to keep track of the file name. If the package
@@ -609,12 +602,11 @@ and the derived files
 %   adding bookmarks at the end of the document depends
 %   on the driver.
 %
-%   Some drivers
-%   (\xoption{pdftex}, \xoption{dvips}, \xoption{dvipsone},
-%   \xoption{textures}) use package \xpackage{atveryend}'s
+%   The driver \xoption{pdftex}
+%   use package \xpackage{atveryend}'s
 %   for this purpose. \cs{AtEndDocument} is too early,
 %   the last page might not been shipped out. Because the \xext{aux}
-%   file is needed, these drivers use \cs{AfterLastShipout}.
+%   file is needed, this driver use \cs{AfterLastShipout}.
 %
 %   The implementation of the other drivers
 %   (\xoption{dvipdfm}, \xoption{xetex}, \xoption{vtex})
@@ -624,6 +616,8 @@ and the derived files
 %   helps. It puts its argument on last page of the document.
 %   Two \hologo{LaTeX} runs are necessary at least, because
 %   the last page is detected by a reference.
+%
+%   \xoption{dvips} uses now the new LaTeX hook \texttt{shipout/lastpage}.
 % \item
 %   The time of expansion of the argument of \cs{BookmarkAtEnd}
 %   is not specified. This can happen immediately or at the end
@@ -1624,8 +1618,6 @@ and the derived files
 %    \begin{macrocode}
 \BKM@DefineDriverKey{pdftex}
 \BKM@DefineDriverKey{dvips}
-\BKM@DefineDriverKey{dvipsone}
-\BKM@DefineDriverKey{textures}
 \BKM@DefineDriverKey{dvipdfm}
 \BKM@DefineDriverKey{dvipdfmx}
 \BKM@DefineDriverKey{xetex}
@@ -2555,62 +2547,6 @@ and the derived files
 %</dvips>
 %    \end{macrocode}
 %
-% \subsubsection{Driver dvipsone}
-%
-%    \begin{macrocode}
-%<*dvipsone>
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesFile{bkm-dvipsone.def}%
-  [2020-11-06 v1.29 bookmark driver for dvipsone (HO)]%
-%    \end{macrocode}
-%    \begin{macro}{\BKM@PSHeaderFile}
-%    \begin{macrocode}
-\def\BKM@PSHeaderFile#1{%
-  \special{PSfile=#1}%
-}
-%    \end{macrocode}
-%    \begin{macro}{\BKM@filename}
-%    \begin{macrocode}
-\def\BKM@filename{\jobname.out.ps}
-%    \end{macrocode}
-%    \end{macro}
-%    \begin{macrocode}
-\BKM@PSHeaderFile\BKM@filename
-\AddToHook{shipout/lastpage}{\BKM@pdfmark@out}
-%    \end{macrocode}
-%    \end{macro}
-%    \begin{macrocode}
-%</dvipsone>
-%    \end{macrocode}
-%
-% \subsubsection{Driver textures}
-%
-%    \begin{macrocode}
-%<*textures>
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesFile{bkm-textures.def}%
-  [2020-11-06 v1.29 bookmark driver for textures (HO)]%
-%    \end{macrocode}
-%    \begin{macro}{\BKM@PSHeaderFile}
-%    \begin{macrocode}
-\def\BKM@PSHeaderFile#1{%
-  \special{prePostScriptfile #1}%
-}
-%    \end{macrocode}
-%    \begin{macro}{\BKM@filename}
-%    \begin{macrocode}
-\def\BKM@filename{\jobname.out.ps}
-%    \end{macrocode}
-%    \end{macro}
-%    \begin{macrocode}
-\BKM@PSHeaderFile\BKM@filename
-\AddToHook{shipout/lastpage}{\BKM@pdfmark@out}
-%    \end{macrocode}
-%    \end{macro}
-%    \begin{macrocode}
-%</textures>
-%    \end{macrocode}
-%
 % \subsubsection{Common part}
 %
 %    \begin{macrocode}
@@ -3115,8 +3051,6 @@ and the derived files
 %   bookmark.sty & tex/latex/bookmark/bookmark.sty\\
 %   bkm-dvipdfm.def & tex/latex/bookmark/bkm-dvipdfm.def\\
 %   bkm-dvips.def & tex/latex/bookmark/bkm-dvips.def\\
-%   bkm-dvipsone.def & tex/latex/bookmark/bkm-dvipsone.def\\
-%   bkm-textures.def & tex/latex/bookmark/bkm-textures.def\\
 %   bkm-pdftex.def & tex/latex/bookmark/bkm-pdftex.def\\
 %   bkm-vtex.def & tex/latex/bookmark/bkm-vtex.def\\
 %   bookmark.pdf & doc/latex/bookmark/bookmark.pdf\\
@@ -3456,11 +3390,12 @@ and the derived files
 %     by \xpackage{hyperref}).
 %   \end{Version}
 %   \begin{Version}{2020-11-06 v1.29}
-%   \item Adapted the dvips and dvipsone driver to avoid a clash with pgf.
+%   \item Adapted the dvips to avoid a clash with pgf.
 %         https://github.com/pgf-tikz/pgf/issues/944
-%         These drivers and the textures driver now use the new LaTeX hooks
+%         This driver now use the new LaTeX hooks
 %         and so require a format 2020-10-01 or newer.
 %   \item Added support for destlabel option of hyperref, https://github.com/ho-tex/bookmark/issues/1
+%   \item Removed the \xoption{dvipsone} and \xoption{textures} driver.
 %   \end{Version}
 % \end{History}
 %
