@@ -2725,12 +2725,8 @@ and the derived files
 % \subsubsection{Write auxiliary file}
 %
 %    \begin{macrocode}
-\RequirePackage{auxhook}
-%    \end{macrocode}
-%    \begin{macrocode}
-\AddLineBeginMainAux{%
-  \string\providecommand\string\BKM@entry[2]{}%
-}
+\AddToHook{begindocument}{%
+ \immediate\write\@mainaux{\string\providecommand\string\BKM@entry[2]{}}}
 %    \end{macrocode}
 %
 %    \begin{macro}{\BKM@id}
