@@ -1,16 +1,9 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 Chapter 1.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line ....
 [1
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line ....
-(issue1-destlabel.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line ....
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line ....
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line ....
- )<../cmbx12.pfb><../cmr10.pfb>
-Output written on issue1-destlabel.pdf (1 page, 19400 bytes).
+] (issue1-destlabel.aux) )<../cmbx12.pfb><../cmr10.pfb>
+Output written on issue1-destlabel.pdf (1 page, 19426 bytes).
 PDF statistics:
  24 PDF objects out of 1000 (max. 8388607)
  3 named destinations out of 1000 (max. 500000)
