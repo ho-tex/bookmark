@@ -2955,46 +2955,44 @@ and the derived files
 %
 % \subsubsection{Drivers using hooks at end of document}
 %
-%    The following drivers use package \xpackage{atveryend}'s
-%    \cs{AfterLastShipout}, because they still need the
-%    \xext{aux} file.
+%    Driver \xoption{pdftex} use the LaTeX hook \xoption{enddocument/afterlastpage}
+%    (which is equivalent to the previously used
+%    \cs{AfterLastShipout} of \xpackage{atveryend}'s),
+%    because it still needs the \xext{aux} file. It uses
+%    uses \cs{pdfoutline} for the bookmakrs that can  be used after the last page.
 %    \begin{itemize}
 %    \item
 %      Driver \xoption{pdftex} uses \cs{pdfoutline} that can
 %      be used after the last page.
-%    \item
-%      PostScript drivers such as
-%      \xoption{dvips} use an external PostScript header file
-%      for the bookmarks. File writing can be done after
-%      the last shipout page, but before the \xext{aux} file is closed.
 %    \end{itemize}
 %    \begin{macrocode}
-%<*pdftex|pdfmark>
+%<*pdftex>
 \ifBKM@atend
-  \AfterLastShipout{%
+  \AddToHook{enddocument/afterlastpage}{%
     \BKM@EndHook
   }%
 \fi
-%</pdftex|pdfmark>
+%</pdftex>
 %    \end{macrocode}
 %
-% \subsubsection{Drivers using \cs{AtEndDvi}}
+% \subsubsection{Drivers using \xoption{shipout/lastpage}}
 %
 %    The other drivers implement \cs{bookmark} using \cs{special}
 %    commands. Thus the last bookmarks must be put on the last page,
 %    not afterwards.
 %    \cs{AtEndDocument} cannot be used, because it is too late, the
-%    last page can already be output. Therefore we use package
-%    \xpackage{atenddvi} that uses the help of packages \xpackage{atbegshi}
-%    and \xpackage{zref}. The argument of \cs{AtEndDvi} is put
-%    at the end of the last page. At least two \hologo{LaTeX} runs are necessary.
+%    last page can already be output. Therefore we use the
+%    LaTeX hook \xoption{shipout/lastpage}.
+%    At least two \hologo{LaTeX} runs are necessary.
+%    The postscript driver \xoption{dvips} use an external PostScript file
+%    for the bookmarks. The file writing has been moved to the
+%    the last shipout page too to avoid conflicts with pgf.
 %    \begin{macrocode}
-%<*dvipdfm|vtex>
+%<*dvipdfm|vtex|pdfmark>
 \ifBKM@atend
-  \RequirePackage{atenddvi}%
-  \AtEndDvi{\BKM@EndHook}%
+  \AddToHook{shipout/lastpage}{\BKM@EndHook}%
 \fi
-%</dvipdfm|vtex>
+%</dvipdfm|vtex|pdfmark>
 %    \end{macrocode}
 %
 % \section{Installation}
