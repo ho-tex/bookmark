@@ -30,10 +30,13 @@
 %    bookmark.sty, bookmark.pdf, bookmark.ins, bookmark.drv,
 %    bkm-dvipdfm.def, bkm-dvips.def,
 %    bkm-pdftex.def, bkm-vtex.def,
+%    bkm-dvipdfm-2019-12-03.def, bkm-dvips-2019-12-03.def,
+%    bkm-pdftex-2019-12-03.def, bkm-vtex-2019-12-03.def,
 %    bookmark-example.tex.
 %
 % Distribution:
 %    CTAN:macros/latex/contrib/bookmark/bookmark.dtx
+%    CTAN:macros/latex/contrib/bookmark/bookmark-frozen.dtx
 %    CTAN:macros/latex/contrib/bookmark/bookmark.pdf
 %
 % Unpacking:
@@ -68,9 +71,14 @@
 %    TDS:tex/latex/bookmark/bkm-dvips.def
 %    TDS:tex/latex/bookmark/bkm-pdftex.def
 %    TDS:tex/latex/bookmark/bkm-vtex.def
+%    TDS:tex/latex/bookmark/bkm-dvipdfm-2019-12-03.def
+%    TDS:tex/latex/bookmark/bkm-dvips-2019-12-03.def
+%    TDS:tex/latex/bookmark/bkm-pdftex-2019-12-03.def
+%    TDS:tex/latex/bookmark/bkm-vtex-2019-12-03.def%
 %    TDS:doc/latex/bookmark/bookmark.pdf
 %    TDS:doc/latex/bookmark/bookmark-example.tex
 %    TDS:source/latex/bookmark/bookmark.dtx
+%    TDS:source/latex/bookmark/bookmark-frozen.dtx
 %
 %<*ignore>
 \begingroup
@@ -122,10 +130,12 @@ Heiko Oberdiek and the Oberdiek Package Support Group
 https://github.com/ho-tex/bookmark/issues
 
 
-This work consists of the main source file bookmark.dtx
+This work consists of the main source file bookmark.dtx and bookmark-frozen.dtx
 and the derived files
    bookmark.sty, bookmark.pdf, bookmark.ins, bookmark.drv,
    bkm-dvipdfm.def, bkm-dvips.def, bkm-pdftex.def, bkm-vtex.def,
+   bkm-dvipdfm-2019-12-03.def, bkm-dvips-2019-12-03.def,
+   bkm-pdftex-2019-12-03.def, bkm-vtex-2019-12-03.def,
    bookmark-example.tex.
 
 \endpreamble
@@ -142,6 +152,10 @@ and the derived files
   \file{bkm-vtex.def}{\from{bookmark.dtx}{vtex}}%
   \usedir{doc/latex/bookmark}%
   \file{bookmark-example.tex}{\from{bookmark.dtx}{example}}%
+  \file{bkm-pdftex-2019-12-03.def}{\from{bookmark-frozen.dtx}{pdftexfrozen}}%
+  \file{bkm-dvips-2019-12-03.def}{\from{bookmark-frozen.dtx}{dvipsfrozen}}%
+  \file{bkm-vtex-2019-12-03.def}{\from{bookmark-frozen.dtx}{vtexfrozen}}%
+  \file{bkm-dvipdfm-2019-12-03.def}{\from{bookmark-frozen.dtx}{dvipdfmfrozen}}%
 }
 
 \catcode32=13\relax% active space
@@ -152,7 +166,9 @@ and the derived files
 \Msg{* files into a directory searched by TeX:}
 \Msg{*}
 \Msg{*     bookmark.sty, bkm-dvipdfm.def, bkm-dvips.def,}
-\Msg{*     bkm-pdftex.def, bkm-vtex.def}
+\Msg{*     bkm-pdftex.def, bkm-vtex.def, bkm-dvipdfm-2019-12-03.def,}
+\Msg{*     bkm-dvips-2019-12-03.def, bkm-pdftex-2019-12-03.def,}
+\Msg{*     and bkm-vtex-2019-12-03.def}
 \Msg{*}
 \Msg{* To produce the documentation run the file `bookmark.drv'}
 \Msg{* through LaTeX.}
@@ -290,8 +306,9 @@ and the derived files
 % \begin{quote}
 % |\def\BookmarkDriverDefault{dvipdfm}|
 % \end{quote}
-% The \xoption{dvips} driver uses new \LaTeX-hooks and
-% so require a format 2020-10-01 or newer.
+% The current versions of the drivers uses new \LaTeX-hooks. If an
+% older format than 2020-10-01 is detected frozen versions of
+% the previous drivers are used as fallback.
 %
 % \paragraph{Open bookmarks with dvipdfmx.} Since 2007-04-25 the
 % cvs version of dvipmdfmx contains a patch that extends the
@@ -1772,6 +1789,8 @@ and the derived files
     \fi
   \fi
 \fi
+\providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
+\IfFormatAtLeastTF{2020/10/01}{}{\edef\BKM@driver{\BKM@driver-2019-12-03}}
 \InputIfFileExists{bkm-\BKM@driver.def}{}{%
   \PackageError{bookmark}{%
     Unsupported driver `\BKM@driver'.\MessageBreak
