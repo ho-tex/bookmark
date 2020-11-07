@@ -310,17 +310,14 @@ and the derived files
 % older format than 2020-10-01 is detected frozen versions of
 % the previous drivers are used as fallback.
 %
-% \paragraph{Open bookmarks with dvipdfmx.} Since 2007-04-25 the
-% cvs version of dvipmdfmx contains a patch that extends the
-% \cs{special} for bookmarks in order to specify the open status of
-% an outline entry. Option \xoption{dvipdfmx-outline-open} notifies
-% the package that the dvi driver program understands this kind
-% of \cs{special}. Alternatively \cs{SpecialDvipdfmxOutlineOpen}
-% can be defined as number one in the configuration file or before
-% the package is loaded, e.g.:
-% \begin{quote}
-% |\chardef\SpecialDvipdfmxOutlineOpen=1\relax|
-% \end{quote}
+% \paragraph{Open bookmarks with dvipdfmx.} Older version of
+% the package had an option \xoption{dvipdfmx-outline-open}
+% to activate code which allows to specify the open
+% status of an outline entry.
+% The package now assumes that all used dvipdfmx version are current enough to
+% understand this code and so activates the code always.
+% The option itself will be ignored.
+%
 %
 % \subsubsection{Layout options}
 %
@@ -1640,16 +1637,8 @@ and the derived files
 \BKM@DefineDriverKey{xetex}
 \BKM@DefineDriverKey{vtex}
 \define@key{BKM}{dvipdfmx-outline-open}[true]{%
-  \expandafter\ifx\csname if#1\expandafter\endcsname
-                  \csname iftrue\endcsname
-    \chardef\SpecialDvipdfmxOutlineOpen\@ne
-  \else
-    \chardef\SpecialDvipdfmxOutlineOpen\z@
-  \fi
-}
-\g@addto@macro\BKM@DisableOptions{%
-  \DisableKeyvalOption{BKM}{dvipdfmx-outline-open}%
-}
+ \PackageWarning{bookmark}{Option 'dvipdfmx-outline-open' is obsolete
+   and ignored}{}}
 %    \end{macrocode}
 %    \begin{macro}{\bookmark@driver}
 %    \begin{macrocode}
@@ -1719,22 +1708,6 @@ and the derived files
 %
 % \paragraph{Driver validation and loading.}
 %
-%    \begin{macrocode}
-\newif\ifBKM@DvipdfmxOutlineOpen
-\ltx@IfUndefined{SpecialDvipdfmxOutlineOpen}{%
-  \ifxetex
-    \ifdim\number\XeTeXversion\XeTeXrevision in<0.9995in %
-    \else
-      \chardef\SpecialDvipdfmxOutlineOpen\ltx@one
-      \BKM@DvipdfmxOutlineOpentrue
-    \fi
-  \fi
-}{%
-  \ifnum\SpecialDvipdfmxOutlineOpen>\z@
-    \BKM@DvipdfmxOutlineOpentrue
-  \fi
-}
-%    \end{macrocode}
 %    \begin{macrocode}
 \def\BKM@temp{dvipdfmx}%
 \ifx\BKM@temp\BKM@driver
@@ -2003,7 +1976,7 @@ and the derived files
         }%
       \fi
       \special{pdf:%
-        out \ifBKM@DvipdfmxOutlineOpen
+        out
               [%
               \ifBKM@open
                 \ifnum\BKM@level<%
@@ -2016,7 +1989,6 @@ and the derived files
                 -%
               \fi
               ] %
-            \fi
             \BKM@abslevel
         <<%
           /Title(\BKM@title)%
@@ -3409,6 +3381,9 @@ and the derived files
 %         and so require a format 2020-10-01 or newer.
 %   \item Added support for destlabel option of hyperref, https://github.com/ho-tex/bookmark/issues/1
 %   \item Removed the \xoption{dvipsone} and \xoption{textures} driver.
+%   \item Removed the code for option \xoption{dvipdfmx-outline-open}
+%     and \cs{SpecialDvipdfmxOutlineOpen}. All dvipdfmx version should now support
+%     this out-of-box. 
 %   \end{Version}
 % \end{History}
 %
