@@ -5,6 +5,7 @@ module = "bookmark"
 
 textfiles = {"README.md"}
 unpackfiles = {'bookmark.dtx'}
+typesetfiles = {"bookmark.dtx"}
 sourcefiles={"*.dtx","*.tex"}
 installfiles={"*.sty","*.tex","*.def"}
 
