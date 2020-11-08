@@ -3377,8 +3377,10 @@ and the derived files
 %   \begin{Version}{2020-11-06 v1.29}
 %   \item Adapted the dvips to avoid a clash with pgf.
 %         https://github.com/pgf-tikz/pgf/issues/944
-%         This driver now use the new LaTeX hooks
-%         and so require a format 2020-10-01 or newer.
+%   \item All drivers now use the new LaTeX hooks
+%         and so require a format 2020-10-01 or newer. The older
+%         drivers are provided as frozen versions and are used if an older
+%         format is detected.
 %   \item Added support for destlabel option of hyperref, https://github.com/ho-tex/bookmark/issues/1
 %   \item Removed the \xoption{dvipsone} and \xoption{textures} driver.
 %   \item Removed the code for option \xoption{dvipdfmx-outline-open}
