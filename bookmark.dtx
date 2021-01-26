@@ -1,12 +1,12 @@
 % \iffalse meta-comment
 %
 % File: bookmark.dtx
-% Version: 2020-11-06 v1.29
+% Version: 2021-01-26 v1.30
 % Info: PDF bookmarks
 %
 % Copyright (C)
 %    2007-2011 Heiko Oberdiek
-%    2016-2020 Oberdiek Package Support Group
+%    2016-2021 Oberdiek Package Support Group
 %    https://github.com/ho-tex/bookmark/issues
 %
 % This work may be distributed and/or modified under the
@@ -95,7 +95,7 @@
 \input docstrip.tex
 \Msg{************************************************************************}
 \Msg{* Installation}
-\Msg{* Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)}
+\Msg{* Package: bookmark 2021-01-26 v1.30 PDF bookmarks (HO)}
 \Msg{************************************************************************}
 
 \keepsilent
@@ -107,11 +107,11 @@
 This is a generated file.
 
 Project: bookmark
-Version: 2020-11-06 v1.29
+Version: 2021-01-26 v1.30
 
 Copyright (C)
    2007-2011 Heiko Oberdiek
-   2016-2020 Oberdiek Package Support Group
+   2016-2021 Oberdiek Package Support Group
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either
@@ -185,7 +185,7 @@ and the derived files
 %<*driver>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bookmark.drv}%
-  [2020-11-06 v1.29 PDF bookmarks (HO)]%
+  [2021-01-26 v1.30 PDF bookmarks (HO)]%
 \documentclass{ltxdoc}
 \usepackage{holtxdoc}[2011/11/22]
 \begin{document}
@@ -199,7 +199,7 @@ and the derived files
 % \GetFileInfo{bookmark.drv}
 %
 % \title{The \xpackage{bookmark} package}
-% \date{2020-11-06 v1.29}
+% \date{2021-01-26 v1.30}
 % \author{Heiko Oberdiek\thanks
 % {Please report any issues at \url{https://github.com/ho-tex/bookmark/issues}}}
 %
@@ -762,7 +762,7 @@ and the derived files
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{bookmark}%
-  [2020-11-06 v1.29 PDF bookmarks (HO)]%
+  [2021-01-26 v1.30 PDF bookmarks (HO)]%
 %    \end{macrocode}
 %
 % \subsubsection{Requirements}
@@ -1815,7 +1815,7 @@ and the derived files
 \def\Hy@writebookmark#1#2#3#4#5{%
   \ifnum#4>\BKM@depth\relax
   \else
-    \def\BKM@type{#5}%
+    \edef\BKM@type{#5}%
     \ifx\BKM@type\Hy@bookmarkstype
       \begingroup
         \ifBKM@numbered
@@ -1853,7 +1853,7 @@ and the derived files
 %<*dvipdfm>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-dvipdfm.def}%
-  [2020-11-06 v1.29 bookmark driver for dvipdfm (HO)]%
+  [2021-01-26 v1.30 bookmark driver for dvipdfm (HO)]%
 %    \end{macrocode}
 %
 %    \begin{macro}{\BKM@id}
@@ -2027,7 +2027,7 @@ and the derived files
 %<*vtex>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-vtex.def}%
-  [2020-11-06 v1.29 bookmark driver for VTeX (HO)]%
+  [2021-01-26 v1.30 bookmark driver for VTeX (HO)]%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -2358,7 +2358,7 @@ and the derived files
 %<*pdftex>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-pdftex.def}%
-  [2020-11-06 v1.29 bookmark driver for pdfTeX (HO)]%
+  [2021-01-26 v1.30 bookmark driver for pdfTeX (HO)]%
 %    \end{macrocode}
 %
 %    \begin{macro}{\BKM@DO@entry}
@@ -2514,7 +2514,7 @@ and the derived files
 %<*dvips>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{bkm-dvips.def}%
-  [2020-11-06 v1.29 bookmark driver for dvips (HO)]%
+  [2021-01-26 v1.30 bookmark driver for dvips (HO)]%
 %    \end{macrocode}
 %    \begin{macro}{\BKM@PSHeaderFile}
 %    \begin{macrocode}
@@ -3386,6 +3386,10 @@ and the derived files
 %   \item Removed the code for option \xoption{dvipdfmx-outline-open}
 %     and \cs{SpecialDvipdfmxOutlineOpen}. All dvipdfmx version should now support
 %     this out-of-the-box.
+%   \end{Version}
+%   \begin{Version}{2021-01-26 v1.30}
+%   \item Corrected support for option \xoption{bookmarkstype} of
+%   \xpackage{hyperref}, https://github.com/ho-tex/bookmark/issues/4
 %   \end{Version}
 % \end{History}
 %
