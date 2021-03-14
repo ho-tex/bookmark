@@ -2509,7 +2509,9 @@ and the derived files
 % \subsection{Drivers with pdfmark specials}
 %
 % \subsubsection{Driver dvips}
-%
+% The dvips driver uses PSfile to include the bookmark to resolve a
+% clash with pgf, see
+% https://github.com/pgf-tikz/pgf/issues/944#issuecomment-723099952
 %    \begin{macrocode}
 %<*dvips>
 \NeedsTeXFormat{LaTeX2e}
