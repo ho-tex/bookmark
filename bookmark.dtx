@@ -2899,7 +2899,6 @@ and the derived files
 %    \begin{macro}{\BKM@LuaTeX@InitFile}
 %    \begin{macrocode}
 \ifluatex
-  \ifnum\luatexversion>36 %
     \def\BKM@LuaTeX@InitFile{%
       \begingroup
         \ltx@LocToksA={}%
@@ -2914,9 +2913,6 @@ and the derived files
         }%
       }\x
     }%
-  \else
-    \let\BKM@LuaTeX@InitFile\relax
-  \fi
 \else
   \let\BKM@LuaTeX@InitFile\relax
 \fi
