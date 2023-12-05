@@ -11,7 +11,7 @@ installfiles={"*.sty","*.tex","*.def"}
 
 checkconfigs = {"build","config-noxetex"}
 
-packtdszip  = true
+packtdszip  = false
 
 maxprintline=10000
 checkruns = 2
