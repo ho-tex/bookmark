@@ -1,0 +1,123 @@
+\iffalse meta-comment
+ File `bookmark.ins',
+ 
+
+ Project: bookmark
+ Version: 2023-12-10 v1.31
+ 
+ Copyright (C)
+    2007-2011 Heiko Oberdiek
+    2016-2023 Oberdiek Package Support Group
+ 
+ This work may be distributed and/or modified under the
+ conditions of the LaTeX Project Public License, either
+ version 1.3c of this license or (at your option) any later
+ version. This version of this license is in
+    https://www.latex-project.org/lppl/lppl-1-3c.txt
+ and the latest version of this license is in
+    https://www.latex-project.org/lppl.txt
+ and version 1.3 or later is part of all distributions of
+ LaTeX version 2005/12/01 or later.
+ 
+ This work has the LPPL maintenance status "maintained".
+ 
+ The Current Maintainers of this work are
+ Heiko Oberdiek and the Oberdiek Package Support Group
+ https://github.com/ho-tex/bookmark/issues
+ 
+ This file is part of the "bookmark bundle" (The Work in LPPL)
+ and all files in that bundle must be distributed together.
+
+ The released version of this bundle is available from CTAN.
+ 
+ This work consists of the main source files bookmark.dtx, 
+ and bookmark.ins and the derived files
+    bookmark.sty, bookmark.pdf, 
+    bkm-dvipdfm.def, bkm-dvips.def, bkm-pdftex.def, bkm-vtex.def,
+    bookmark-example.tex.
+% 
+\fi
+\input docstrip.tex
+\Msg{************************************************************************}
+\Msg{* Installation}
+\Msg{* Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)}
+\Msg{************************************************************************}
+
+\keepsilent
+\askforoverwritefalse
+
+\let\MetaPrefix\relax
+\preamble
+
+This is a generated file.
+
+Project: bookmark
+Version: 2023-12-10 v1.31
+
+Copyright (C)
+   2007-2011 Heiko Oberdiek
+   2016-2023 Oberdiek Package Support Group
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either
+version 1.3c of this license or (at your option) any later
+version. This version of this license is in
+   https://www.latex-project.org/lppl/lppl-1-3c.txt
+and the latest version of this license is in
+   https://www.latex-project.org/lppl.txt
+and version 1.3 or later is part of all distributions of
+LaTeX version 2005/12/01 or later.
+
+This work has the LPPL maintenance status "maintained".
+
+The Current Maintainers of this work are
+Heiko Oberdiek and the Oberdiek Package Support Group
+https://github.com/ho-tex/bookmark/issues
+
+This file is part of the "bookmark bundle" (The Work in LPPL)
+ and all files in that bundle must be distributed together.
+
+ The released version of this bundle is available from CTAN.
+ 
+ This work consists of the main source files bookmark.dtx
+ and bookmark.ins and the derived files
+    bookmark.sty, bookmark.pdf, 
+    bkm-dvipdfm.def, bkm-dvips.def, bkm-pdftex.def, bkm-vtex.def,
+    bookmark-example.tex.
+
+\endpreamble
+\let\MetaPrefix\DoubleperCent
+
+\generate{%
+  \usedir{tex/latex/bookmark}%
+  \file{bookmark.sty}{\from{bookmark.dtx}{package}}%
+  \file{bkm-dvipdfm.def}{\from{bookmark.dtx}{dvipdfm}}%
+  \file{bkm-dvips.def}{\from{bookmark.dtx}{dvips,pdfmark}}%
+  \file{bkm-pdftex.def}{\from{bookmark.dtx}{pdftex}}%
+  \file{bkm-vtex.def}{\from{bookmark.dtx}{vtex}}%
+  \usedir{doc/latex/bookmark}%
+  \file{bookmark-example.tex}{\from{bookmark.dtx}{example}}%
+}
+
+\catcode32=13\relax% active space
+\let =\space%
+\Msg{************************************************************************}
+\Msg{*}
+\Msg{* To finish the installation you have to move the following}
+\Msg{* files into a directory searched by TeX:}
+\Msg{*}
+\Msg{*     bookmark.sty, bkm-dvipdfm.def, bkm-dvips.def,}
+\Msg{*     bkm-pdftex.def and bkm-vtex.def}
+\Msg{*}
+\Msg{* To produce the documentation run the file `bookmark.dtx'}
+\Msg{* through LaTeX.}
+\Msg{*}
+\Msg{* Happy TeXing!}
+\Msg{*}
+\Msg{************************************************************************}
+
+\endbatchfile
+
+\endinput
+%%
+%% End of file `bookmark.ins'.
