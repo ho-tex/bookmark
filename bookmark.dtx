@@ -727,12 +727,14 @@
 % \paragraph{Some helper commands}
 % Replaces some commands from ltxcmds:
 % 
+%    \begin{macrocode}
 \ExplSyntaxOn
 \let\BKM@LocalAppendToMacro\tl_put_right:Nn
 \let\BKM@GlobalAppendToMacro\tl_gput_right:Nn
 \ExplSyntaxOff 
 \def\BKM@space{ }
 \long\def\BKM@ReturnAfterFi#1\fi{\fi#1}
+%    \end{macrocode}
 %
 % \paragraph{Packages.}
 %
