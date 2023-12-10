@@ -724,6 +724,16 @@
 %    \end{macrocode}
 %    \end{macro}
 %
+% \paragraph{Some helper commands}
+% Replaces some commands from ltxcmds:
+% 
+\ExplSyntaxOn
+\let\BKM@LocalAppendToMacro\tl_put_right:Nn
+\let\BKM@GlobalAppendToMacro\tl_gput_right:Nn
+\ExplSyntaxOff 
+\def\BKM@space{ }
+\long\def\BKM@ReturnAfterFi#1\fi{\fi#1}
+%
 % \paragraph{Packages.}
 %
 % Don't load packages loaded by xpackage{hyperref}
@@ -770,7 +780,7 @@
 %    \begin{macrocode}
 \def\BKM@setup#1{%
   \bookmarksetup{#1}%
-  \ifx\BKM@HookNext\ltx@empty
+  \ifx\BKM@HookNext\@empty
   \else
     \expandafter\bookmarksetup\expandafter{\BKM@HookNext}%
     \BKM@HookNextClear
@@ -787,7 +797,7 @@
 %    \begin{macro}{\bookmarksetupnext}
 %    \begin{macrocode}
 \newcommand*{\bookmarksetupnext}[1]{%
-  \ltx@GlobalAppendToMacro\BKM@HookNext{,#1}%
+  \BKM@GlobalAppendToMacro\BKM@HookNext{,#1}%
 }
 %    \end{macrocode}
 %    \end{macro}
@@ -798,7 +808,7 @@
 %    \begin{macro}{\BKM@HookNextClear}
 %    \begin{macrocode}
 \def\BKM@HookNextClear{%
-  \global\let\BKM@HookNext\ltx@empty
+  \global\let\BKM@HookNext\@empty
 }
 %    \end{macrocode}
 %    \end{macro}
@@ -828,7 +838,7 @@
 %    \begin{macro}{\bookmark@open}
 %    \begin{macrocode}
 \def\bookmark@open{%
-  \ifBKM@open\ltx@one\else\ltx@zero\fi
+  \ifBKM@open\@ne\else\z@\fi
 }
 %    \end{macrocode}
 %    \end{macro}
@@ -842,7 +852,7 @@
 %    \end{macro}
 %    \begin{macrocode}
 %\DeclareStringOption[\c@tocdepth]{depth}
-\ltx@IfUndefined{Hy@bookmarksdepth}{%
+\@ifundefined{Hy@bookmarksdepth}{%
   \def\BKM@depth{\c@tocdepth}%
 }{%
   \let\BKM@depth\Hy@bookmarksdepth
@@ -852,7 +862,7 @@
   \ifx\BKM@param\@empty
     \def\BKM@depth{\c@tocdepth}%
   \else
-    \ltx@IfUndefined{toclevel@\BKM@param}{%
+    \@ifundefined{toclevel@\BKM@param}{%
       \@onelevel@sanitize\BKM@param
       \edef\BKM@temp{\expandafter\@car\BKM@param\@nil}%
       \ifcase 0\expandafter\ifx\BKM@temp-1\fi
@@ -902,7 +912,7 @@
   \ifx\BKM@param\BKM@MacroCurrentLevel
     \let\BKM@level\BKM@param
   \else
-    \ltx@IfUndefined{toclevel@\BKM@param}{%
+    \@ifundefined{toclevel@\BKM@param}{%
       \@onelevel@sanitize\BKM@param
       \edef\BKM@temp{\expandafter\@car\BKM@param\@nil}%
       \ifcase 0\expandafter\ifx\BKM@temp-1\fi
@@ -987,7 +997,7 @@
 %    \begin{macro}{\bookmark@numbered}
 %    \begin{macrocode}
 \def\bookmark@numbered{%
-  \ifBKM@numbered\ltx@one\else\ltx@zero\fi
+  \ifBKM@numbered\@ne\else\z@\fi
 }
 %    \end{macrocode}
 %    \end{macro}
@@ -1048,14 +1058,14 @@
 %    \begin{macro}{\bookmark@italic}
 %    \begin{macrocode}
 \def\bookmark@italic{%
-  \ifnum\bitsetGet{BKM@FontStyle}{0}=1 \ltx@one\else\ltx@zero\fi
+  \ifnum\bitsetGet{BKM@FontStyle}{0}=1 \@ne\else\z@\fi
 }
 %    \end{macrocode}
 %    \end{macro}
 %    \begin{macro}{\bookmark@bold}
 %    \begin{macrocode}
 \def\bookmark@bold{%
-  \ifnum\bitsetGet{BKM@FontStyle}{1}=1 \ltx@one\else\ltx@zero\fi
+  \ifnum\bitsetGet{BKM@FontStyle}{1}=1 \@ne\else\z@\fi
 }
 %    \end{macrocode}
 %    \end{macro}
@@ -1486,7 +1496,7 @@
 %    \end{macro}
 %    \begin{macrocode}
 \define@key{BKM}{addtohook}{%
-  \ltx@LocalAppendToMacro\BKM@hook{#1}%
+  \BKM@LocalAppendToMacro\BKM@hook{#1}%
 }
 %    \end{macrocode}
 %
@@ -1494,10 +1504,10 @@
 %    \begin{macrocode}
 \newcommand*{\bookmarkget}[1]{%
   \romannumeral0%
-  \ltx@ifundefined{bookmark@#1}{%
-    \ltx@space
+  \@ifundefined{bookmark@#1}{%
+    \BKM@space
   }{%
-    \expandafter\expandafter\expandafter\ltx@space
+    \expandafter\expandafter\expandafter\BKM@space
     \csname bookmark@#1\endcsname
   }%
 }
@@ -1581,19 +1591,19 @@
 %    \begin{macrocode}
 \ifBKM@draft
   \PackageWarningNoLine{bookmark}{Draft mode on}%
-  \let\bookmarksetup\ltx@gobble
-  \let\BookmarkAtEnd\ltx@gobble
-  \let\bookmarkdefinestyle\ltx@gobbletwo
-  \let\bookmarkget\ltx@gobble
-  \let\pdfbookmark\ltx@undefined
+  \let\bookmarksetup\@gobble
+  \let\BookmarkAtEnd\@gobble
+  \let\bookmarkdefinestyle\@gobbletwo
+  \let\bookmarkget\@gobble
+  \let\pdfbookmark\@undefined
   \newcommand*{\pdfbookmark}[3][]{}%
-  \let\currentpdfbookmark\ltx@gobbletwo
-  \let\subpdfbookmark\ltx@gobbletwo
-  \let\belowpdfbookmark\ltx@gobbletwo
+  \let\currentpdfbookmark\@gobbletwo
+  \let\subpdfbookmark\@gobbletwo
+  \let\belowpdfbookmark\@gobbletwo
   \newcommand*{\bookmark}[2][]{}%
   \renewcommand*{\Hy@writebookmark}[5]{}%
   \let\ReadBookmarks\relax
-  \let\BKM@DefGotoNameAction\ltx@gobbletwo % package `hypdestopt'
+  \let\BKM@DefGotoNameAction\@gobbletwo % package `hypdestopt'
   \expandafter\endinput
 \fi
 %    \end{macrocode}
@@ -1667,7 +1677,7 @@
 %
 %    \begin{macro}{\pdfbookmark}
 %    \begin{macrocode}
-\let\pdfbookmark\ltx@undefined
+\let\pdfbookmark\@undefined
 \newcommand*{\pdfbookmark}[3][0]{%
   \bookmark[level=#1,dest={#3.#1}]{#2}%
   \hyper@anchorstart{#3.#1}\hyper@anchorend
@@ -1888,7 +1898,7 @@
               [%
               \ifBKM@open
                 \ifnum\BKM@level<%
-                    \expandafter\ltx@firstofone\expandafter
+                    \expandafter\@firstofone\expandafter
                     {\number\BKM@openlevel} %
                 \else
                   -%
@@ -2175,7 +2185,7 @@
     |ifx||#2||%
     |else
       (%
-      |ltx@ReturnAfterFi{%
+      |BKM@ReturnAfterFi{%
         |BKM@vtex@leftparen#2|@nil
       }%
     |fi
@@ -2189,7 +2199,7 @@
     |ifx||#2||%
     |else
       )%
-      |ltx@ReturnAfterFi{%
+      |BKM@ReturnAfterFi{%
         |BKM@vtex@rightparen#2|@nil
       }%
     |fi
@@ -2203,7 +2213,7 @@
     |ifx||#2||%
     |else
       |noexpand|hv@pdf@char0%
-      |ltx@ReturnAfterFi{%
+      |BKM@ReturnAfterFi{%
         |BKM@vtex@zero#2|@nil
       }%
     |fi
@@ -2217,7 +2227,7 @@
     |ifx||#2||%
     |else
       |noexpand|hv@pdf@char1%
-      |ltx@ReturnAfterFi{%
+      |BKM@ReturnAfterFi{%
         |BKM@vtex@one#2|@nil
       }%
     |fi
@@ -2231,7 +2241,7 @@
     |ifx||#2||%
     |else
       |noexpand|hv@pdf@char2%
-      |ltx@ReturnAfterFi{%
+      |BKM@ReturnAfterFi{%
         |BKM@vtex@two#2|@nil
       }%
     |fi
@@ -2245,7 +2255,7 @@
     |ifx||#2||%
     |else
       |noexpand|hv@pdf@char3%
-      |ltx@ReturnAfterFi{%
+      |BKM@ReturnAfterFi{%
         |BKM@vtex@three#2|@nil
       }%
     |fi
@@ -2768,7 +2778,7 @@
   \edef\BKM@srcline{\the\inputlineno}%
   \BKM@LuaTeX@InitFile
   \ifx\BKM@srcfile\@empty
-    \ltx@IfUndefined{currfilepath}{}{%
+    \@ifundefined{currfilepath}{}{%
       \edef\BKM@srcfile{\currfilepath}%
     }%
   \fi
@@ -2780,13 +2790,13 @@
 \ifluatex
     \def\BKM@LuaTeX@InitFile{%
       \begingroup
-        \ltx@LocToksA={}%
+        \toks@={}%
       \edef\x{\endgroup
         \def\noexpand\BKM@srcfile{%
-          \the\expandafter\ltx@LocToksA
+          \the\expandafter\toks@
           \directlua{%
              if status and status.filename then %
-               tex.settoks('ltx@LocToksA', status.filename)%
+               tex.settoks('toks@', status.filename)%
              end%
           }%
         }%
