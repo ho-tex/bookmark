@@ -25,9 +25,9 @@
 % Heiko Oberdiek and the Oberdiek Package Support Group
 % https://github.com/ho-tex/bookmark/issues
 %
-% This work consists of the main source file bookmark.dtx
-% and the derived files
-%    bookmark.sty, bookmark.pdf, bookmark.ins, bookmark.drv,
+% This work consists of the main source files bookmark.dtx,
+% bookmark-frozen.dtx and bookmark.ins and the derived files
+%    bookmark.sty, bookmark.pdf, 
 %    bkm-dvipdfm.def, bkm-dvips.def,
 %    bkm-pdftex.def, bkm-vtex.def,
 %    bkm-dvipdfm-2019-12-03.def, bkm-dvips-2019-12-03.def,
@@ -40,24 +40,17 @@
 %    CTAN:macros/latex/contrib/bookmark/bookmark.pdf
 %
 % Unpacking:
-%    (a) If bookmark.ins is present:
-%           tex bookmark.ins
-%    (b) Without bookmark.ins:
-%           tex bookmark.dtx
-%    (c) If you insist on using LaTeX
-%           latex \let\install=y\input{bookmark.dtx}
-%        (quote the arguments according to the demands of your shell)
+%    tex/pdftex/pdflatex bookmark.ins
 %
 % Documentation:
-%    (a) If bookmark.drv is present:
-%           latex bookmark.drv
-%    (b) Without bookmark.drv:
-%           latex bookmark.dtx; ...
+%    
+%         (pdf)latex bookmark.dtx; ...
+%         
 %    The class ltxdoc loads the configuration file ltxdoc.cfg
 %    if available. Here you can specify further options, e.g.
 %    use A4 as paper format:
-%       \PassOptionsToClass{a4paper}{article}
-%
+%       \PassOptionsToClass{a4paper}{article}%
+%       
 %    Programm calls to get the documentation (example):
 %       pdflatex bookmark.dtx
 %       makeindex -s gind.ist bookmark.idx

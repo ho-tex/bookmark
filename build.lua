@@ -4,9 +4,7 @@
 module = "bookmark"
 
 textfiles = {"README.md"}
-unpackfiles = {'bookmark.dtx'}
 typesetfiles = {"bookmark.dtx"}
-sourcefiles={"*.dtx","*.tex"}
 installfiles={"*.sty","*.tex","*.def"}
 
 checkconfigs = {"build","config-noxetex"}
@@ -18,21 +16,29 @@ checkruns = 2
 
 tdslocations={
 "doc/latex/bookmark/bookmark-example.tex",
+"tex/latex/bookmark/bookmark.sty",
 "tex/latex/bookmark/bkm-dvipdfm.def",
+"tex/latex/bookmark/bkm-dvipdfm-2019-12-03.def",
 "tex/latex/bookmark/bkm-dvips.def",
+"tex/latex/bookmark/bkm-dvips-2019-12-03.def",
 "tex/latex/bookmark/bkm-dvipsone.def",
 "tex/latex/bookmark/bkm-pdftex.def",
+"tex/latex/bookmark/bkm-pdftex-2019-12-03.def",
 "tex/latex/bookmark/bkm-textures.def",
 "tex/latex/bookmark/bkm-vtex.def",
+"tex/latex/bookmark/bkm-vtex-2019-12-03.def",
 }
 
-tagfiles={"README.md", "*.dtx"}
+tagfiles={"README.md", "*.dtx", "*.ins"}
 
 function update_tag(file,content,tagname,tagdate)
 
 local tagpattern="(%d%d%d%d[-/]%d%d[-/]%d%d) v(%d+[.])(%d+)"
 local oldv,newv
 if tagname == 'auto' then
+  content = string.gsub (content,
+                         "2016%-%d%d%d%d",
+                         "2016-"..os.date("%Y"))    
   local i,j,olddate,a,b
   i,j,olddate,a,b= string.find(content, tagpattern)
   if i == nil then
