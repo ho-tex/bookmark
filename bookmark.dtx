@@ -34,7 +34,6 @@
 %
 % Distribution:
 %    CTAN:macros/latex/contrib/bookmark/bookmark.dtx
-%    CTAN:macros/latex/contrib/bookmark/bookmark-frozen.dtx
 %    CTAN:macros/latex/contrib/bookmark/bookmark.pdf
 %
 % Unpacking:
@@ -65,7 +64,6 @@
 %    TDS:doc/latex/bookmark/bookmark.pdf
 %    TDS:doc/latex/bookmark/bookmark-example.tex
 %    TDS:source/latex/bookmark/bookmark.dtx
-%    TDS:source/latex/bookmark/bookmark-frozen.dtx
 %
 %<*driver>
 \NeedsTeXFormat{LaTeX2e}
@@ -2937,7 +2935,6 @@
 % CTAN\footnote{\CTANpkg{bookmark}}:
 % \begin{description}
 % \item[\CTAN{macros/latex/contrib/bookmark/bookmark.dtx}] The source file.
-% \item[\CTAN{macros/latex/contrib/bookmark/bookmark-frozen.dtx}] Frozen driver files.
 % \item[\CTAN{macros/latex/contrib/bookmark/bookmark.ins}] Installation driver.
 % \item[\CTAN{macros/latex/contrib/bookmark/bookmark.pdf}] Documentation.
 % \end{description}
@@ -3292,9 +3289,7 @@
 %   \item Adapted the dvips to avoid a clash with pgf.
 %         https://github.com/pgf-tikz/pgf/issues/944
 %   \item All drivers now use the new LaTeX hooks
-%         and so require a format 2020-10-01 or newer. The older
-%         drivers are provided as frozen versions and are used if an older
-%         format is detected.
+%         and so require a format 2020-10-01 or newer.
 %   \item Added support for destlabel option of hyperref, https://github.com/ho-tex/bookmark/issues/1
 %   \item Removed the \xoption{dvipsone} and \xoption{textures} driver.
 %   \item Removed the code for option \xoption{dvipdfmx-outline-open}
