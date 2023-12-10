@@ -18,15 +18,11 @@ tdslocations={
 "doc/latex/bookmark/bookmark-example.tex",
 "tex/latex/bookmark/bookmark.sty",
 "tex/latex/bookmark/bkm-dvipdfm.def",
-"tex/latex/bookmark/bkm-dvipdfm-2019-12-03.def",
 "tex/latex/bookmark/bkm-dvips.def",
-"tex/latex/bookmark/bkm-dvips-2019-12-03.def",
 "tex/latex/bookmark/bkm-dvipsone.def",
 "tex/latex/bookmark/bkm-pdftex.def",
-"tex/latex/bookmark/bkm-pdftex-2019-12-03.def",
 "tex/latex/bookmark/bkm-textures.def",
 "tex/latex/bookmark/bkm-vtex.def",
-"tex/latex/bookmark/bkm-vtex-2019-12-03.def",
 }
 
 tagfiles={"README.md", "*.dtx", "*.ins"}

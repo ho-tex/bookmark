@@ -26,12 +26,10 @@
 % https://github.com/ho-tex/bookmark/issues
 %
 % This work consists of the main source files bookmark.dtx,
-% bookmark-frozen.dtx and bookmark.ins and the derived files
+% and bookmark.ins and the derived files
 %    bookmark.sty, bookmark.pdf, 
 %    bkm-dvipdfm.def, bkm-dvips.def,
 %    bkm-pdftex.def, bkm-vtex.def,
-%    bkm-dvipdfm-2019-12-03.def, bkm-dvips-2019-12-03.def,
-%    bkm-pdftex-2019-12-03.def, bkm-vtex-2019-12-03.def,
 %    bookmark-example.tex.
 %
 % Distribution:
@@ -64,10 +62,6 @@
 %    TDS:tex/latex/bookmark/bkm-dvips.def
 %    TDS:tex/latex/bookmark/bkm-pdftex.def
 %    TDS:tex/latex/bookmark/bkm-vtex.def
-%    TDS:tex/latex/bookmark/bkm-dvipdfm-2019-12-03.def
-%    TDS:tex/latex/bookmark/bkm-dvips-2019-12-03.def
-%    TDS:tex/latex/bookmark/bkm-pdftex-2019-12-03.def
-%    TDS:tex/latex/bookmark/bkm-vtex-2019-12-03.def%
 %    TDS:doc/latex/bookmark/bookmark.pdf
 %    TDS:doc/latex/bookmark/bookmark-example.tex
 %    TDS:source/latex/bookmark/bookmark.dtx
@@ -195,10 +189,9 @@
 % \begin{quote}
 % |\def\BookmarkDriverDefault{dvipdfm}|
 % \end{quote}
-% The current versions of the drivers uses new \LaTeX-hooks. If an
-% older format than 2020-10-01 is detected frozen versions of
-% the previous drivers are used as fallback.
-%
+% The current versions of the drivers uses new \LaTeX-hooks and tests if the PDF management
+% is active and so requires a format newer than 2022-06-01.
+% 
 % \paragraph{Open bookmarks with dvipdfmx.} Older version of
 % the package had an option \xoption{dvipdfmx-outline-open}
 % to activate code which allows to specify the open
@@ -1661,8 +1654,6 @@
     \fi
   \fi
 \fi
-\providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
-\IfFormatAtLeastTF{2020/10/01}{}{\edef\BKM@driver{\BKM@driver-2019-12-03}}
 \InputIfFileExists{bkm-\BKM@driver.def}{}{%
   \PackageError{bookmark}{%
     Unsupported driver `\BKM@driver'.\MessageBreak
@@ -3294,6 +3285,12 @@
 %   \item Corrected support for option \xoption{bookmarkstype} of
 %   \xpackage{hyperref}, https://github.com/ho-tex/bookmark/issues/4
 %   \item Added support for structure destinations, https://github.com/ho-tex/bookmark/issues/7   
+%   \end{Version}
+%   \begin{Version}{unreleased}
+%   \item Simplified the \xfile{.dtx}. It is no longer a self-extracting archive
+%    instead the newly added \xfile{.ins} should be used for installation.
+%    https://github.com/ho-tex/bookmark/issues/7
+%   \item Removed the now outdated frozen drivers.  
 %   \end{Version}
 % \end{History}
 %
